@@ -1,6 +1,6 @@
 {
 	"Token": "ur user token here xd",
-	"PokecordPrefix": "-",
+	"PokecordPrefix": "p!",
 	"UserbotPrefix": "&",
 	"OwnerID": 6969696969696,
 	"EnableLogging": true,
@@ -13,5 +13,6 @@
 	"SpammerMinDelay": 3000,
 	"SpammerMaxDelay": 4500,
 	"SpammerMessages": ["david has 10 bowling balls", "my name jeff", "THE PAIN", "SAVE ME"],
+	"WhitelistedChannels": [696969696969, 420420420420],
 	"WhitelistedGuilds": [696969696969, 420420420420]
 }

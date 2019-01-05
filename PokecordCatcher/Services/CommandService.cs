@@ -75,6 +75,14 @@ namespace PokecordCatcherBot.Services
             await msg.Channel.SendMessageAsync("Whitelisting of guilds has been toggled to " + State.WhitelistGuilds);
         }
 
+        [Command(nameof(ToggleChannels), "Toggle channel whitelisting.")]
+        public async Task ToggleChannels(SocketMessage msg, string[] args)
+        {
+            State.WhitelistChannels = !State.WhitelistChannels;
+            File.WriteAllText("state.data", JsonConvert.SerializeObject(State));
+            await msg.Channel.SendMessageAsync("Whitelisting of channels has been toggled to " + State.WhitelistChannels);
+        }
+
         [Command(nameof(TogglePokemon), "Toggle pokemon whitelisting.")]
         public async Task TogglePokemon(SocketMessage msg, string[] args)
         {
