@@ -24,6 +24,7 @@ namespace PokecordCatcherBot.Models
         public string[] SpammerMessages { get; set; }
 
         public string[] WhitelistedPokemon { get; set; }
+        public ulong[] WhitelistedChannels { get; set; }
         public ulong[] WhitelistedGuilds { get; set; }
     }
 }

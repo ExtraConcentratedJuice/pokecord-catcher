@@ -38,6 +38,10 @@ namespace PokecordCatcherBot.Services
             if (State.WhitelistGuilds && !Configuration.WhitelistedGuilds.Contains(guild.Id))
                 return;
 
+            ulong channelId = channel.Id;
+            if(State.WhitelistChannels && !Configuration.WhitelistedChannels.Contains(channelId))
+                return;
+
             if (msg.Author.Id != PokecordCatcher.POKECORD_ID || msg.Embeds?.Count == 0)
                 return;
 
@@ -70,9 +74,11 @@ namespace PokecordCatcherBot.Services
                 await Task.Delay(delay);
             }
 
+            string lcName = name.ToLower();
+
             var resp = await ResponseGrabber.SendMessageAndGrabResponse(
                 (ITextChannel)msg.Channel,
-                $"{Configuration.PokecordPrefix}catch {name}",
+                $"{Configuration.PokecordPrefix}catch {lcName}",
                 x => MessagePredicates.SuccessfulCatchMessage(x, msg, Client.CurrentUser.Id),
                 5
             );
